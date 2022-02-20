@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Accordion } from './components/accordion/Accordion';
 
 function App() {
+  const accordeonData = [
+    { id: 1, title: 'Título 1', description: 'Descipción del item 1' },
+    { id: 2, title: 'Título 2', description: 'Descipción del item 2' },
+    { id: 3, title: 'Título 3', description: 'Descipción del item 3' },
+    { id: 4, title: 'Título 4', description: 'Descipción del item 4' },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Un acordeon simple</h1>
+      {accordeonData.map((item) => (
+        <Accordion
+          key={item.id}
+          title={item.title}
+          content={item.description}
+        />
+      ))}
     </div>
   );
 }
